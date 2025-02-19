@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.name }}</title>
+    <!-- Local Bootstrap CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">{{ recipe.name }}</h1>
+        <hr>
+        <h3>Ingredients:</h3>
+        <ul>
+            {% for ingredient in recipe.ingredients %}
+                <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+        <hr>
+        <h3>Procedure:</h3>
+        <p>{{ recipe.procedure }}</p>
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Recipe Book</a>
+    </div>
+</body>
+</html>
